@@ -75,7 +75,7 @@ const RegistrationForm = () => {
 	};
 
 	return (
-		<div className='min-h-screen flex justify-center items-center'>
+		<div className='min-h-screen flex justify-center items-center py-10'>
 			<div className='bg-white md:p-6 w-full max-w-md space-y-8'>
 				<div className='text-center md:text-left'>
 					<h2 className='text-xl md:text-2xl font-bold mb-1 text-gray-800'>Join Research Connect Today!</h2>
