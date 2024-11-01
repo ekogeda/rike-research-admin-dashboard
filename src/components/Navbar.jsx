@@ -1,20 +1,15 @@
-import { useState, useContext, useEffect } from 'react';
+import { useState, useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import LogoSVG from '../assets/research_connect_logo.svg';
 import NotificationSVG from '../assets/notification.svg';
 import ProfileSVG from '../assets/profile.svg';
+import LogoutSVG from '../assets/logout.svg';
 
 const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
-	const { user } = useContext(AuthContext);
-	// const { user, logout } = useContext(AuthContext);
+	const { user, logout } = useContext(AuthContext);
 	const userData = user?.user;
-	const navigate = useNavigate();
-
-	useEffect(() => {
-		if (!user) navigate('/');
-	}, [user, navigate]);
 
 	const toggleMenu = () => {
 		setIsMenuOpen(!isMenuOpen);
@@ -65,16 +60,22 @@ const Navbar = () => {
 				</div>
 			</div>
 
-			<div className='flex items-center space-x-2 md:space-x-4'>
-				<button className='relative'>
-					<img src={NotificationSVG} alt='Bell' className='h-6' />
-					<span className='absolute top-0 right-0 inline-flex items-center justify-center w-3 h-3 bg-red-500 rounded-full'></span>
-				</button>
-				<div className='flex items-center gap-1'>
-					<img src={ProfileSVG} alt='Profile Avatar' className='h-6 w-8 rounded-full' />{' '}
-					<span className='text-[#075438] font-semibold'>{userData?.firstName}</span>
+			{userData && (
+				<div className='flex items-center space-x-2 md:space-x-4'>
+					<button className='relative'>
+						<img src={NotificationSVG} alt='Bell' className='h-6' />
+						<span className='absolute top-0 right-0 inline-flex items-center justify-center w-3 h-3 bg-red-500 rounded-full'></span>
+					</button>
+					<div className='flex items-center gap-1'>
+						<img src={ProfileSVG} alt='Profile Avatar' className='h-6 w-8 rounded-full' />{' '}
+						<span className='text-[#075438] font-semibold'>{userData?.firstName}</span>
+					</div>
+
+					<button onClick={logout} className='flex items-center gap-1 text-red-500 font-semibold'>
+						<img src={LogoutSVG} alt='Profile Avatar' className='h-4 w-4' /> Logout
+					</button>
 				</div>
-			</div>
+			)}
 
 			{isMenuOpen && (
 				<div className='fixed inset-0 z-40 bg-gray-800 bg-opacity-75 flex justify-start transition-opacity duration-300 ease-in-out'>
