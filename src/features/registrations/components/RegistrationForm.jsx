@@ -253,14 +253,14 @@ const RegistrationForm = () => {
 							{loading ? 'Submitting...' : 'Sign Up'}
 						</button>
 					</div>
-				</form>
 
-				<div className='text-sm text-center'>
-					Already have an account?{' '}
-					<Link to='/' className='font-bold text-[#09704A] hover:underline'>
-						Log in here
-					</Link>
-				</div>
+					<div className='text-sm'>
+						Already have an account?{' '}
+						<Link to='/' className='font-bold text-[#09704A] hover:text-blue-600 underline'>
+							Login
+						</Link>
+					</div>
+				</form>
 			</div>
 		</div>
 	);
