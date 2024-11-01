@@ -34,7 +34,6 @@ const LoginForm = () => {
 		try {
 			const response = await loginUser(formData);
 			delete response.statusCode;
-			console.log('Login successful', response);
 
 			userToken(response.token);
 
