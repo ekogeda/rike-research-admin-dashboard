@@ -72,7 +72,7 @@ const Navbar = () => {
 				</button>
 				<div className='flex items-center gap-1'>
 					<img src={ProfileSVG} alt='Profile Avatar' className='h-6 w-8 rounded-full' />{' '}
-					<span className='text-[#075438] font-semibold'>{userData.firstName}</span>
+					<span className='text-[#075438] font-semibold'>{userData?.firstName}</span>
 				</div>
 			</div>
 
