@@ -4,6 +4,7 @@ import { AuthProvider } from './context/AuthContext';
 import { EquipmentProvider } from './context/EquipmentContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 import DashboardPage from './features/dashboard/DashboardPage';
 import ProjectsPage from './features/projects/ProjectsPage';
 import ResearchersPage from './features/researchers/ResearchersPage';
@@ -43,6 +44,8 @@ const App = () => {
 
 				<Footer />
 			</div>
+			<ScrollToTop />
+
 			<ToastContainer
 				position='top-right'
 				autoClose={5000}
