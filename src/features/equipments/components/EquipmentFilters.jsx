@@ -34,7 +34,6 @@ const EquipmentFilters = ({ onFilter, onCreate, currentPage, totalItems, itemsPe
 	const totalPages = Math.ceil(totalItems / itemsPerPage);
 
 	const handleFilterChange = (newFilters) => {
-		console.log('newFilters:', newFilters);
 		onFilter({
 			searchTerm: newFilters?.searchTerm || searchTerm,
 			taxonomy: newFilters?.taxonomy || taxonomy,
