@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import LogoSVG from '../assets/research_connect_logo.svg';
 import NotificationSVG from '../assets/notification.svg';
 import ProfileSVG from '../assets/profile.svg';
@@ -11,12 +11,19 @@ const Navbar = () => {
 	const { user, logout } = useContext(AuthContext);
 	const userData = user?.user;
 
+	const navigate = useNavigate();
+
 	const toggleMenu = () => {
 		setIsMenuOpen(!isMenuOpen);
 	};
 
 	const closeMenu = () => {
 		setIsMenuOpen(false);
+	};
+
+	const handleLogout = () => {
+		logout();
+		navigate('/');
 	};
 
 	return (
@@ -71,7 +78,7 @@ const Navbar = () => {
 						<span className='text-[#075438] font-semibold'>{userData?.firstName}</span>
 					</div>
 
-					<button onClick={logout} className='flex items-center gap-1 text-red-500 font-semibold'>
+					<button onClick={handleLogout} className='flex items-center gap-1 text-red-500 font-semibold'>
 						<img src={LogoutSVG} alt='Profile Avatar' className='h-4 w-4' /> Logout
 					</button>
 				</div>
